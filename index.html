@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicción Meteorológica</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+</head>
+<body class="bg-dark text-white">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">WeatherPredict</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#" id="nav-home">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="nav-form">Predicción</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="nav-dashboard">Histórico</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="nav-map">Mapa</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <div class="container mt-5" id="home-section">
+        <h1 class="text-center animate__animated animate__fadeInDown">Predicción Meteorológica en Australia</h1>
+        <p class="text-center animate__animated animate__fadeInUp">Seleccione una sección para comenzar.</p>
+    </div>
+
+    <!-- Form Section -->
+    <div class="container mt-4" id="form-section" style="display: none;">
+        <h2 class="text-center animate__animated animate__fadeInUp">Ingrese los datos para la predicción</h2>
+        <form id="predictionForm" class="animate__animated animate__fadeInUp">
+            <div class="form-group">
+                <label for="temperature">Temperatura (°C)</label>
+                <input type="number" class="form-control" id="temperature" placeholder="Ingrese la temperatura">
+            </div>
+            <div class="form-group">
+                <label for="humidity">Humedad (%)</label>
+                <input type="number" class="form-control" id="humidity" placeholder="Ingrese la humedad">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Predecir</button>
+        </form>
+        <div id="result" class="mt-4"></div>
+    </div>
+
+    <!-- Dashboard Section -->
+    <div class="container mt-4" id="dashboard-section" style="display: none;">
+        <h2 class="text-center animate__animated animate__fadeInUp">Histórico</h2>
+        <canvas id="historicalDataChart" class="animate__animated animate__fadeInUp"></canvas>
+        <div id="historical-summary" class="mt-4">
+            <h4>Datos Relevantes del Histórico</h4>
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Dato</th>
+                        <th scope="col">Valor</th>
+                    </tr>
+                </thead>
+                <tbody id="summary-table-body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Map Section -->
+    <div class="container mt-4" id="map-section" style="display: none;">
+        <h2 class="text-center animate__animated animate__fadeInUp">Mapa de Australia</h2>
+        <div id="map" class="animate__animated animate__fadeInUp" style="height: 500px;"></div>
+        <div id="map-summary" class="mt-4">
+            <h4>Resultados de las Predicciones</h4>
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Lluvia</th>
+                    </tr>
+                </thead>
+                <tbody id="map-table-body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
